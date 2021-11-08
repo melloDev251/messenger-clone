@@ -8,15 +8,21 @@ const multer = require("multer");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
+const conversationRoute = require("./routes/conversations")
+const messageRoute = require("./routes/messages")
 const router = express.Router();
 const path = require("path");
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 dotenv.config();
 
 mongoose.connect(
   "mongodb+srv://" +
-      process.env.DB_USER_PASS +
-      "@cluster0.jcpvc.mongodb.net/wesh",
+    process.env.DB_USER_PASS +
+    "@cluster0.jcpvc.mongodb.net/wesh",
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to MongoDB");
@@ -50,6 +56,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
+app.use("/api/conversations", conversationRoute)
+app.use("/api/messages", messageRoute)
 
 app.listen(8800, () => {
   console.log("Backend server is running!");

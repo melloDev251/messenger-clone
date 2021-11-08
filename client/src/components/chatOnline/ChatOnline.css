@@ -21,11 +21,12 @@
 }
 
 .chatOnlineBadge{
-    width: 10px;
-    height: 10px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     background-color: limegreen;
-    position: absolute;
-    top: 1px;
-    right: 1px;
+    position: relative;
+    top: -20px;
+    right: -28px;
+    border: 2px solid white;
 }
