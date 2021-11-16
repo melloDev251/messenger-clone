@@ -22,12 +22,18 @@ export default function ChatOnline({ onlineUsers, currentId, setCurrentChat }) {
     setOnlineFriends(friends.filter((f) => onlineUsers.includes(f._id)));
   }, [friends, onlineUsers]);
 
-  console.log(onlineUsers);
+  // console.log(onlineUsers);
+
+  const handleClick = async (user) => {
+    const res = await axios.get(`/conversations/find/${currentId}/${user._id}`);
+    console.log(res);
+    // setCurrentChat(res.data);
+  };
 
   return (
     <div className="chatOnline">
       {onlineFriends.map((o) => (
-        <div className="chatOnlineFriend">
+        <div className="chatOnlineFriend" onClick={() => handleClick(o)}>
           <div className="chatOnlineImgContainer">
             <img
               className="chatOnlineImg"

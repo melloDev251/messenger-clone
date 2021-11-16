@@ -18,15 +18,28 @@ router.post("/", async (req, res) => {
 
 // get conversation of a user
 
-router.get("/:userId",async (req,res)=>{
+router.get("/:userId", async (req, res) => {
   try {
     const conv = await Conversation.find({
-      members:{$in: [req.params.userId]}
-    })
-    res.status(200).json(conv)
+      members: { $in: [req.params.userId] },
+    });
+    res.status(200).json(conv);
   } catch (error) {
-    res.status(500).json(error)
+    res.status(500).json(error);
   }
-})
+});
+
+// get conv includes two user
+
+router.get("/find/:firstUserId/:secondUserId", async (req, res) => {
+  try {
+    const conversation = await Conversation.findOne({
+      members: { $all: [req.params.firestUserId, req.params.secondUserId] },
+    });
+    res.status(200).json(conversation)
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 module.exports = router;

@@ -45,12 +45,14 @@ const Messenger = () => {
     socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(
-        // user.followings.filter((f) => users.some((u) => u.userId === f))
-        user.followings.filter((f) => users.some(f.userId))
+        user.followings.filter((f) => users.some((u) => u.userId === f))
+        // user.followings.filter((f) => users.some(f.userId))
       );
       // setOnlineUsers(users);
     });
   }, [user]);
+
+  console.log(user);
 
   // conversations
   useEffect(() => {
