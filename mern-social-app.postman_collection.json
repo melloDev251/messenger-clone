@@ -1,0 +1,153 @@
+{
+	"variables": [],
+	"info": {
+		"name": "mern-social-app",
+		"_postman_id": "96933b0f-10bc-dfe3-53e2-7c0758d25724",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"request": {
+				"url": "http://localhost:8800/api/users/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"url": "http://localhost:8800/api/auth/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"samia\",\n\t\"email\":\"samia@gmail.com\",\n\t\"password\":\"samia123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "follow user",
+			"request": {
+				"url": "http://localhost:8800/api/users/6188b3c14d3e91be72bdcec6/follow",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"userId\":\"618968929f46a82ba6a1db5e\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"url": "http://localhost:8800/api/users/61892fd30a0d2c53e2eaf26e/",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create conversation",
+			"request": {
+				"url": "http://localhost:8800/api/conversations",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"senderId\":\"6188b3c14d3e91be72bdcec6\",\n\t\"receiverId\":\"6188b3dc4d3e91be72bdcec7\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "conversation",
+			"request": {
+				"url": "http://localhost:8800/api/conversations/6188b3c14d3e91be72bdcec6",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"senderId\":\"776165165156456\",\n\t\"receiverId\":\"99526461665\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "create message",
+			"request": {
+				"url": "http://localhost:8800/api/messages",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"conversationId\":\"6188be3cfa9950ec7a50842b\",\n\t\"sender\":\"6188b3c14d3e91be72bdcec6\",\n\t\"text\":\"Good as usual\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "message",
+			"request": {
+				"url": "http://localhost:8800/api/messages/6188bd250b0c92ea90ac4c68",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"conversationId\":\"6188be3cfa9950ec7a50842b\",\n\t\"sender\":\"6188b3c14d3e91be72bdcec6\",\n\t\"text\":\"Good as usual\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
